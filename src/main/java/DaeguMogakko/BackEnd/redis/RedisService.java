@@ -20,7 +20,4 @@ public class RedisService {
         return redisTemplate.hasKey(refreshToken);
     }
 
-    public void deleteRefreshToken(String refreshToken) {
-        redisTemplate.delete(refreshToken);
-    }
 }
