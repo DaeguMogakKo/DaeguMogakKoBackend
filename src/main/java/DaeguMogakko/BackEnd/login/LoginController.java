@@ -26,6 +26,11 @@ public class LoginController {
                 "refresh", refreshToken),
                 HttpStatus.OK);
     }
-    
 
+    @PostMapping("/signup")
+    public ResponseEntity<Void> signup(@RequestBody signupDto signupDto) {
+        loginService.signup(signupDto.email(), signupDto.password());
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+    
 }
