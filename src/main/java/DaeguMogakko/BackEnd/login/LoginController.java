@@ -32,7 +32,7 @@ public class LoginController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<Void> signup(@RequestBody signupDto signupDto) {
+    public ResponseEntity<Void> signup(@RequestBody SignupDto signupDto) {
         loginService.signup(signupDto.email(), signupDto.password());
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
