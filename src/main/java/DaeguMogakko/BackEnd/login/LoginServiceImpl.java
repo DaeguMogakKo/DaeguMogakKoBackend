@@ -40,5 +40,12 @@ public class LoginServiceImpl implements LoginService {
         return jwtUtil.generateRefreshToken(email);
     }
 
-
+    @Override
+    public void signup(String email, String password) {
+        memberRepository.save(Member.builder()
+                .email(email)
+                .password(password)
+                .role("ROLE_USER")
+                .build());
+    }
 }

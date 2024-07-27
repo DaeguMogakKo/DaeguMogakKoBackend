@@ -5,4 +5,5 @@ public interface LoginService {
     void isCorrectPassword(String email, String inputPassword);
     String issueAccessToken(String email);
     String issueRefreshToken(String email);
+    void signup(String email, String password);
 }
