@@ -1,6 +1,6 @@
 package DaeguMogakko.BackEnd.login;
 
-public record signupDto(
+public record SignupDto(
         String email,
         String password
 ) {
