@@ -1,4 +1,4 @@
-package DaeguMogakko.BackEnd.security.jwt;
+package DaeguMogakko.BackEnd.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -37,7 +37,7 @@ public class JwtUtil {
         this.jwtParser = Jwts.parser().verifyWith((SecretKey) this.key).build();
     }
 
-    public Claims extractAllClaims(String token) {
+    private Claims extractAllClaims(String token) {
         return (Claims) jwtParser.parse(token).getPayload();
     }
 

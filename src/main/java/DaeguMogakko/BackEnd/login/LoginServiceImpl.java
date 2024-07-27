@@ -4,7 +4,7 @@ import DaeguMogakko.BackEnd.exception.MemberNotFoundException;
 import DaeguMogakko.BackEnd.exception.MemberPasswordException;
 import DaeguMogakko.BackEnd.member.Member;
 import DaeguMogakko.BackEnd.member.MemberRepository;
-import DaeguMogakko.BackEnd.security.jwt.JwtUtil;
+import DaeguMogakko.BackEnd.jwt.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
