@@ -18,8 +18,7 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public void isCorrectEmail(String email) {
-        Boolean result = memberRepository.existsByEmail(email);
-        if (!result) {
+        if (!memberRepository.existsByEmail(email)) {
             throw new MemberNotFoundException("멤버가 존재하지 않습니다.");
         }
     }
