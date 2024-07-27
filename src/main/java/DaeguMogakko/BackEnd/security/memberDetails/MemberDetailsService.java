@@ -1,6 +1,6 @@
 package DaeguMogakko.BackEnd.security.memberDetails;
 
-import DaeguMogakko.BackEnd.security.jwt.JwtUtil;
+import DaeguMogakko.BackEnd.jwt.JwtUtil;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import io.jsonwebtoken.Claims;

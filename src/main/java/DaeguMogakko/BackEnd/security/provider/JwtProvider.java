@@ -1,6 +1,6 @@
 package DaeguMogakko.BackEnd.security.provider;
 
-import DaeguMogakko.BackEnd.security.jwt.JwtUtil;
+import DaeguMogakko.BackEnd.jwt.JwtUtil;
 import DaeguMogakko.BackEnd.security.memberDetails.MemberDetails;
 import DaeguMogakko.BackEnd.security.memberDetails.MemberDetailsService;
 import DaeguMogakko.BackEnd.security.token.JwtAuthenticationToken;
