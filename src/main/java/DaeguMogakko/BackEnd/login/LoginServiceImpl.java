@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class LoginServiceImpl implements LoginService{
+public class LoginServiceImpl implements LoginService {
 
     private final MemberRepository memberRepository;
     private final JwtUtil jwtUtil;
@@ -19,8 +19,9 @@ public class LoginServiceImpl implements LoginService{
     @Override
     public void isCorrectEmail(String email) {
         Boolean result = memberRepository.existsByEmail(email);
-        if(!result)
+        if (!result) {
             throw new MemberNotFoundException("멤버가 존재하지 않습니다.");
+        }
     }
 
     @Override
@@ -29,8 +30,9 @@ public class LoginServiceImpl implements LoginService{
     }
 
     @Override
-    public String issueAccessToken(String email, String role) {
-        return jwtUtil.generateAccessToken(email, role);
+    public String issueAccessToken(String email) {
+        Member findMember = memberRepository.findByEmail(email).get();
+        return jwtUtil.generateAccessToken(email, findMember.getRole());
     }
 
     @Override
