@@ -31,4 +31,9 @@ spring:
 logging.level:
   org.hibernate.SQL: debug
 
+jwt:
+  secret_key: ee55088b3f82301f1e2fa906416cfd5c22bfadd2f1c295f82b9489f1d58d5ee6
+  access_token_validity: 3600
+  refresh_token_validity: 4320
+
 ---
