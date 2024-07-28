@@ -27,7 +27,7 @@ public class LoginController {
         redisService.insertRefreshToken(refreshToken);
         return new ResponseEntity<>(Map.of(
                 "accessToken", accessToken,
-                "refresh", refreshToken),
+                "refreshToken", refreshToken),
                 HttpStatus.OK);
     }
 
