@@ -1,5 +1,6 @@
 package DaeguMogakko.BackEnd.login;
 
+import DaeguMogakko.BackEnd.exception.DuplicateMemberException;
 import DaeguMogakko.BackEnd.exception.MemberNotFoundException;
 import DaeguMogakko.BackEnd.exception.MemberPasswordException;
 import DaeguMogakko.BackEnd.member.Member;
@@ -41,10 +42,17 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public void signup(String email, String password) {
+        isExistEmail(email);
         memberRepository.save(Member.builder()
                 .email(email)
                 .password(password)
                 .role("ROLE_USER")
                 .build());
+    }
+
+    private void isExistEmail(String email) {
+        if (memberRepository.existsByEmail(email)) {
+            throw new DuplicateMemberException("이미 존재하는 이메일입니다.");
+        }
     }
 }
