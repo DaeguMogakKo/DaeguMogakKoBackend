@@ -1,0 +1,39 @@
+spring:
+  profiles:
+    active: local
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: local
+
+  data:
+    redis:
+      host: localhost
+      password: 1234
+      port: 6379
+
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/Mogakko
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+      hibernate:
+        format_sql: true
+
+
+logging.level:
+  org.hibernate.SQL: debug
+
+jwt:
+  secret_key: ee55088b3f82301f1e2fa906416cfd5c22bfadd2f1c295f82b9489f1d58d5ee6
+  access_token_validity: 3600
+  refresh_token_validity: 4320
+
+---
