@@ -1,9 +1,11 @@
-package com.mgk.user;
+package com.mgk.svc;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.mgk.user.SiteUser;
+import com.mgk.repository.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
