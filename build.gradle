@@ -2,11 +2,19 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.3.2'
 	id 'io.spring.dependency-management' version '1.1.6'
+	id 'war'
 }
 
-group = 'DaeguMogakko'
-version = '0.0.1-SNAPSHOT'
 
+group = 'com.mgk'
+version = '0.0.1'
+apply plugin: 'war'
+
+bootWar{
+	archiveBaseName = "mgk"
+	archiveFileName = "mgk.war"
+	archiveVersion = "1.0.0"
+}
 java {
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(21)
@@ -39,7 +47,36 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-	implementation 'mysql:mysql-connector-java:8.0.33'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+	
+	compileOnly 'org.projectlombok:lombok' 
+    annotationProcessor 'org.projectlombok:lombok'
+    
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+
+	//Swagger
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
+	//- spring fox
+	/*implementation 'io.springfox:springfox-boot-starter:3.0.0'
+	implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+
+
+	//- spring doc
+	implementation 'org.springdoc:springdoc-openapi-ui:1.6.15'*/
+
+	//DB Setting
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	
+	 //Spring Security
+ 	implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+	
+
 }
 
 tasks.named('test') {

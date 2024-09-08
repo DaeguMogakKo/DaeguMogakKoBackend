@@ -1,4 +1,4 @@
-package com.mgk.user;
+package com.mgk.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,6 +1,8 @@
-package com.mgk.user;
+package com.mgk.svc;
 
 
+import com.mgk.user.SiteUser;
+import com.mgk.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

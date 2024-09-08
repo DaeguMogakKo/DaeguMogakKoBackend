@@ -1,5 +1,8 @@
-package com.mgk.user;
+package com.mgk.controller;
 
+import com.mgk.user.UserCreateForm;
+import com.mgk.svc.UserService;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -9,18 +12,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
-@Controller
+@RestController
 @RequestMapping("/user")
 public class UserController {
 	private final UserService userService;
 	//main공지사항 같은 경우는 get으로 해도 상관 X
-	@GetMapping("/signup")
+	@PostMapping("/signup")@GetMapping
 	public String signup(UserCreateForm userCreateForm) {
+		System.out.println("signup");
 		return "signup_form";
 	}
 	//숨겨야 하는 경우.
+/*
 	@PostMapping("/signup")
 	public String signup(@Valid UserCreateForm userCreateForm, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
@@ -45,6 +51,7 @@ public class UserController {
 
 		return "redirect:/";
 	}
+*/
 
 	@GetMapping("/login")
 	public String login() {
