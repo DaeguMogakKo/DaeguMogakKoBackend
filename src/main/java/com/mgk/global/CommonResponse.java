@@ -12,10 +12,10 @@ public class CommonResponse<T> {
     private T data;
 
     public static <T> CommonResponse<T> success(T data) {
-        return new CommonResponse<>(Result.OK.getCode(),Result.OK.getMsg(),data);
+        return new CommonResponse<>(Result.OK.getCode(), Result.OK.getMsg(), data);
     }
 
     public static <T> CommonResponse<T> success() {
-        return new CommonResponse<>(Result.OK.getCode(),Result.OK.getMsg(),null);
+        return new CommonResponse<>(Result.OK.getCode(), Result.OK.getMsg(), null);
     }
 }
