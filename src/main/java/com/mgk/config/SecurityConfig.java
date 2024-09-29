@@ -41,5 +41,4 @@ public class SecurityConfig {
     AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
-       
 }

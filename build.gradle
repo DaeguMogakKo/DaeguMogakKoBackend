@@ -32,11 +32,12 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
 	
 	compileOnly 'org.projectlombok:lombok' 
@@ -47,23 +48,13 @@ dependencies {
 
 	//Swagger
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
-	//- spring fox
-	/*implementation 'io.springfox:springfox-boot-starter:3.0.0'
-	implementation 'io.springfox:springfox-swagger-ui:3.0.0'
-
-
-	//- spring doc
-	implementation 'org.springdoc:springdoc-openapi-ui:1.6.15'*/
-
 	//DB Setting
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	runtimeOnly 'com.mysql:mysql-connector-j'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	
 	 //Spring Security
  	implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
-	
 }
 
 tasks.named('test') {
