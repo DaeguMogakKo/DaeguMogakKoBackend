@@ -4,6 +4,8 @@ import com.mgk.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
+
+import java.net.http.HttpRequest;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -19,5 +21,12 @@ public class UserService {
 			result = "OK";
 		}
 		return result;
+	}
+
+
+	public String setLogin(String snsToken, String snsType, HttpRequest request) {
+		System.out.println("snsToken: " + snsToken);
+		System.out.println("snsType: " + snsType);
+		return snsType+snsType;
 	}
 }
