@@ -4,14 +4,11 @@ import com.mgk.svc.UserService;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import lombok.RequiredArgsConstructor;
-
-import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/user")
+@RequestMapping(value = "/user", method = {RequestMethod.POST, RequestMethod.GET})
 @MapperScan("com.mgk.mapper")
 public class UserController {
 
@@ -26,27 +23,8 @@ public class UserController {
 	 * @param favorList(not null)	선호하는 카테고리 리스트(관심목록) | 구분자: 콤마(,)
 	 */
 	@PostMapping("/signup")@GetMapping
-	public String signup(
-			@RequestParam(name = "snsToken") String snsToken,
-			@RequestParam(name = "snsType") String snsType,
-			@RequestParam(name = "email") String email,
-			@RequestParam(name = "nickname") String nickname,
-			@RequestParam(name = "favorList") String favorList
-	) {
+	public String signup(@RequestParam("snsToken") String snsToken, @RequestParam("snsType") String snsType, @RequestParam("email") String email, @RequestParam("nickname") String nickname, @RequestParam("favorList") String favorList
+	){
 		return userService.setSignup(snsToken, email, nickname, snsType, favorList);
 	}
-	/*
-
-	 */
-//	@PostMapping("/signin")@GetMapping
-
-//	@PostMapping("/signin")@GetMapping
-//	@PostMapping("/signin")@GetMapping
-//	@PostMapping("/signin")@GetMapping
-//	@PostMapping("/signin")@GetMapping
-//	@PostMapping("/signin")@GetMapping
-//	@PostMapping("/signin")@GetMapping
-//	@PostMapping("/signin")@GetMapping
-//	@PostMapping("/signin")@GetMapping
-//	@PostMapping("/signin")@GetMapping
 }

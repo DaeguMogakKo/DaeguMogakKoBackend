@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mgk.mapper.UserMapper">
-    <select id="insertUser" resultType="com.mgk.dto.UserDTO">
-        INSERT INTO user (email, nickname, sns_token, sns_type, user_name)
-        VALUES (#{email}, #{nickname}, #{snsToken}, #{snsType}, #{userName})
-    </select>
+    <insert id="insertUser" parameterType="com.mgk.dto.UserDTO">
+        INSERT INTO user (email, nickname, snsToken, snsType, favorList) VALUES (#{email}, #{nickname}, #{snsToken}, #{snsType}, #{favorList})
+    </insert>
 </mapper>

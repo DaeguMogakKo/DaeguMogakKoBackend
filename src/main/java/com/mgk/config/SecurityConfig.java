@@ -11,24 +11,20 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import static jakarta.servlet.DispatcherType.ERROR;
+import static jakarta.servlet.DispatcherType.FORWARD;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .authorizeHttpRequests((authorizeHttpRequests) -> authorizeHttpRequests
-                .requestMatchers(new AntPathRequestMatcher("/**")).permitAll())
-            .csrf((csrf) -> csrf  // 일단 개발시에는 기능을 꺼둠
-                    .ignoringRequestMatchers(new AntPathRequestMatcher("/**")))
-            .formLogin((formLogin) -> formLogin
-                    .loginPage("/signin")
-                    .defaultSuccessUrl("/"))
-            .logout((logout) -> logout
-                    .logoutRequestMatcher(new AntPathRequestMatcher("/signout"))
-                    .logoutSuccessUrl("/")
-                    .invalidateHttpSession(true))
-            ;
+                .authorizeHttpRequests(authorize -> authorize
+                        .dispatcherTypeMatchers(FORWARD, ERROR).permitAll()
+                        .requestMatchers("/**", "/signup", "/about").permitAll()
+                        .anyRequest().authenticated()
+                );
         return http.build();
     }
     
