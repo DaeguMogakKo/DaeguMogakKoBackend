@@ -3,7 +3,6 @@ package com.mgk.controller;
 import com.mgk.svc.UserService;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties;
 import org.springframework.web.bind.annotation.*;
 import lombok.RequiredArgsConstructor;
 
